@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DNSKEY zu DS Konverter</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container pt-5">
+    <h1>DNSKEY zu DS Konverter</h1>
+    <form method="POST" class="pt-3">
+        <div class="form-group">
+            <label for="domain">Domain:</label><br>
+            <input type="text" id="domain" name="domain" class="form-control" placeholder="Geben Sie hier den Domainnamen ein">
+        </div>
+        <input type="submit" value="Konvertieren" class="btn btn-primary">
+    </form>
+
+    <div id="result" class="pt-3">
+        {% if result %}
+            {% for line in result %}
+                {% if line %}
+                    <p>{{ line }}</p>
+                {% else %}
+                    <hr>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>Keine Ergebnisse gefunden. Bitte geben Sie einen gültigen Domainnamen ein.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
